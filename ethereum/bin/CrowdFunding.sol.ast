@@ -1,0 +1,584 @@
+PragmaDirective
+   Source: "pragma solidity >=0.4.22<0.6.0;"
+ContractDefinition "CampaignFactory"
+   Source: "contract CampaignFactory {\n    address[] public deployedCampaigns;\n\n    function createCampaign(uint minimum) public {\n        // this contract is going to deploy a new instance of Campaign contract.\n        Campaign newCampaign = new Campaign(minimum, msg.sender);\n        address newCampaignAddress = address(newCampaign);\n        deployedCampaigns.push(newCampaignAddress);\n    }\n\n    function getDeployedCampaigns() public view returns(address[] memory) {\n        return deployedCampaigns;\n    }\n}"
+  VariableDeclaration "deployedCampaigns"
+     Type: address[] storage ref
+     Source: "address[] public deployedCampaigns"
+    ArrayTypeName
+       Source: "address[]"
+      ElementaryTypeName address
+         Source: "address"
+  FunctionDefinition "createCampaign" - public
+     Source: "function createCampaign(uint minimum) public {\n        // this contract is going to deploy a new instance of Campaign contract.\n        Campaign newCampaign = new Campaign(minimum, msg.sender);\n        address newCampaignAddress = address(newCampaign);\n        deployedCampaigns.push(newCampaignAddress);\n    }"
+    ParameterList
+       Source: "(uint minimum)"
+      VariableDeclaration "minimum"
+         Type: uint256
+         Source: "uint minimum"
+        ElementaryTypeName uint
+           Source: "uint"
+    ParameterList
+       Source: ""
+    Block
+       Source: "{\n        // this contract is going to deploy a new instance of Campaign contract.\n        Campaign newCampaign = new Campaign(minimum, msg.sender);\n        address newCampaignAddress = address(newCampaign);\n        deployedCampaigns.push(newCampaignAddress);\n    }"
+      VariableDeclarationStatement
+         Source: "Campaign newCampaign = new Campaign(minimum, msg.sender)"
+        VariableDeclaration "newCampaign"
+           Type: contract Campaign
+           Source: "Campaign newCampaign"
+          UserDefinedTypeName "Campaign"
+             Source: "Campaign"
+        FunctionCall
+           Type: contract Campaign
+           Source: "new Campaign(minimum, msg.sender)"
+          NewExpression
+             Type: function (uint256,address) returns (contract Campaign)
+             Source: "new Campaign"
+            UserDefinedTypeName "Campaign"
+               Source: "Campaign"
+          Identifier minimum
+             Type: uint256
+             Source: "minimum"
+          MemberAccess to member sender
+             Type: address payable
+             Source: "msg.sender"
+            Identifier msg
+               Type: msg
+               Source: "msg"
+      VariableDeclarationStatement
+         Source: "address newCampaignAddress = address(newCampaign)"
+        VariableDeclaration "newCampaignAddress"
+           Type: address
+           Source: "address newCampaignAddress"
+          ElementaryTypeName address
+             Source: "address"
+        FunctionCall
+           Type: address
+           Source: "address(newCampaign)"
+          ElementaryTypeNameExpression address
+             Type: type(address)
+             Source: "address"
+          Identifier newCampaign
+             Type: contract Campaign
+             Source: "newCampaign"
+      ExpressionStatement
+         Source: "deployedCampaigns.push(newCampaignAddress)"
+        FunctionCall
+           Type: uint256
+           Source: "deployedCampaigns.push(newCampaignAddress)"
+          MemberAccess to member push
+             Type: function (address) returns (uint256)
+             Source: "deployedCampaigns.push"
+            Identifier deployedCampaigns
+               Type: address[] storage ref
+               Source: "deployedCampaigns"
+          Identifier newCampaignAddress
+             Type: address
+             Source: "newCampaignAddress"
+  FunctionDefinition "getDeployedCampaigns" - public - const
+     Source: "function getDeployedCampaigns() public view returns(address[] memory) {\n        return deployedCampaigns;\n    }"
+    ParameterList
+       Source: "()"
+    ParameterList
+       Source: "(address[] memory)"
+      VariableDeclaration ""
+         Type: address[] memory
+         Source: "address[] memory"
+        ArrayTypeName
+           Source: "address[]"
+          ElementaryTypeName address
+             Source: "address"
+    Block
+       Source: "{\n        return deployedCampaigns;\n    }"
+      Return
+         Source: "return deployedCampaigns"
+        Identifier deployedCampaigns
+           Type: address[] storage ref
+           Source: "deployedCampaigns"
+ContractDefinition "Campaign"
+   Source: "contract Campaign{\n    struct Request{\n        string description;\n        uint value;\n        address payable recipient;\n        bool complete;\n        uint approvalCount;\n        mapping(address => bool) approvals;\n    }\n\n    Request[] public requests;\n    address public manager;\n    uint public minimumContribution;\n    mapping(address => bool) public approvers;\n    uint public approversCount;\n\n    modifier restricted(){\n        require(msg.sender == manager);\n        _;\n    }\n\n    constructor(uint minimum, address creator) public {\n        manager = creator;\n        minimumContribution = minimum;\n    }\n\n    function contribute() public payable {\n        require(msg.value > minimumContribution);\n\n        approvers[msg.sender]=true;\n        approversCount++;\n    }\n\n    function createRequest(string memory description,\n                            uint value,\n                            address payable recipient) public restricted {\n        Request memory newRequest = Request({\n            description: description,\n            value: value,\n            recipient: recipient,\n            complete: false,\n            approvalCount: 0\n            });\n        requests.push(newRequest);\n    }\n\n    function approveRequest(uint index) public{\n        Request storage request = requests[index];\n\n        require(approvers[msg.sender]); // require that the sender is a contributor\n        require(!request.approvals[msg.sender]); // the approver cannot vote more than once\n\n        request.approvals[msg.sender]=true;\n        request.approvalCount++;\n    }\n\n    function finalizeRequest(uint index) public restricted {\n        Request storage request = requests[index];\n        require(!request.complete);\n        require(request.approvalCount > (approversCount/2));\n\n        //we transfer the money of the request to the intended recipient\n        // as recipient field is an address, it has a function transfer\n        request.recipient.transfer(request.value);\n        // the request is finished, we mark it as complete, so it cannot be finalized again\n        request.complete=true;\n    }\n\n\n}"
+  StructDefinition "Request"
+     Source: "struct Request{\n        string description;\n        uint value;\n        address payable recipient;\n        bool complete;\n        uint approvalCount;\n        mapping(address => bool) approvals;\n    }"
+    VariableDeclaration "description"
+       Type: string storage pointer
+       Source: "string description"
+      ElementaryTypeName string
+         Source: "string"
+    VariableDeclaration "value"
+       Type: uint256
+       Source: "uint value"
+      ElementaryTypeName uint
+         Source: "uint"
+    VariableDeclaration "recipient"
+       Type: address payable
+       Source: "address payable recipient"
+      ElementaryTypeName address
+         Source: "address payable"
+    VariableDeclaration "complete"
+       Type: bool
+       Source: "bool complete"
+      ElementaryTypeName bool
+         Source: "bool"
+    VariableDeclaration "approvalCount"
+       Type: uint256
+       Source: "uint approvalCount"
+      ElementaryTypeName uint
+         Source: "uint"
+    VariableDeclaration "approvals"
+       Type: mapping(address => bool)
+       Source: "mapping(address => bool) approvals"
+      Mapping
+         Source: "mapping(address => bool)"
+        ElementaryTypeName address
+           Source: "address"
+        ElementaryTypeName bool
+           Source: "bool"
+  VariableDeclaration "requests"
+     Type: struct Campaign.Request storage ref[] storage ref
+     Source: "Request[] public requests"
+    ArrayTypeName
+       Source: "Request[]"
+      UserDefinedTypeName "Request"
+         Source: "Request"
+  VariableDeclaration "manager"
+     Type: address
+     Source: "address public manager"
+    ElementaryTypeName address
+       Source: "address"
+  VariableDeclaration "minimumContribution"
+     Type: uint256
+     Source: "uint public minimumContribution"
+    ElementaryTypeName uint
+       Source: "uint"
+  VariableDeclaration "approvers"
+     Type: mapping(address => bool)
+     Source: "mapping(address => bool) public approvers"
+    Mapping
+       Source: "mapping(address => bool)"
+      ElementaryTypeName address
+         Source: "address"
+      ElementaryTypeName bool
+         Source: "bool"
+  VariableDeclaration "approversCount"
+     Type: uint256
+     Source: "uint public approversCount"
+    ElementaryTypeName uint
+       Source: "uint"
+  ModifierDefinition "restricted"
+     Source: "modifier restricted(){\n        require(msg.sender == manager);\n        _;\n    }"
+    ParameterList
+       Source: "()"
+    Block
+       Source: "{\n        require(msg.sender == manager);\n        _;\n    }"
+      ExpressionStatement
+         Source: "require(msg.sender == manager)"
+        FunctionCall
+           Type: tuple()
+           Source: "require(msg.sender == manager)"
+          Identifier require
+             Type: function (bool) pure
+             Source: "require"
+          BinaryOperation using operator ==
+             Type: bool
+             Source: "msg.sender == manager"
+            MemberAccess to member sender
+               Type: address payable
+               Source: "msg.sender"
+              Identifier msg
+                 Type: msg
+                 Source: "msg"
+            Identifier manager
+               Type: address
+               Source: "manager"
+      PlaceholderStatement
+         Source: "_"
+  FunctionDefinition "" - public
+     Source: "constructor(uint minimum, address creator) public {\n        manager = creator;\n        minimumContribution = minimum;\n    }"
+    ParameterList
+       Source: "(uint minimum, address creator)"
+      VariableDeclaration "minimum"
+         Type: uint256
+         Source: "uint minimum"
+        ElementaryTypeName uint
+           Source: "uint"
+      VariableDeclaration "creator"
+         Type: address
+         Source: "address creator"
+        ElementaryTypeName address
+           Source: "address"
+    ParameterList
+       Source: ""
+    Block
+       Source: "{\n        manager = creator;\n        minimumContribution = minimum;\n    }"
+      ExpressionStatement
+         Source: "manager = creator"
+        Assignment using operator =
+           Type: address
+           Source: "manager = creator"
+          Identifier manager
+             Type: address
+             Source: "manager"
+          Identifier creator
+             Type: address
+             Source: "creator"
+      ExpressionStatement
+         Source: "minimumContribution = minimum"
+        Assignment using operator =
+           Type: uint256
+           Source: "minimumContribution = minimum"
+          Identifier minimumContribution
+             Type: uint256
+             Source: "minimumContribution"
+          Identifier minimum
+             Type: uint256
+             Source: "minimum"
+  FunctionDefinition "contribute" - public
+     Source: "function contribute() public payable {\n        require(msg.value > minimumContribution);\n\n        approvers[msg.sender]=true;\n        approversCount++;\n    }"
+    ParameterList
+       Source: "()"
+    ParameterList
+       Source: ""
+    Block
+       Source: "{\n        require(msg.value > minimumContribution);\n\n        approvers[msg.sender]=true;\n        approversCount++;\n    }"
+      ExpressionStatement
+         Source: "require(msg.value > minimumContribution)"
+        FunctionCall
+           Type: tuple()
+           Source: "require(msg.value > minimumContribution)"
+          Identifier require
+             Type: function (bool) pure
+             Source: "require"
+          BinaryOperation using operator >
+             Type: bool
+             Source: "msg.value > minimumContribution"
+            MemberAccess to member value
+               Type: uint256
+               Source: "msg.value"
+              Identifier msg
+                 Type: msg
+                 Source: "msg"
+            Identifier minimumContribution
+               Type: uint256
+               Source: "minimumContribution"
+      ExpressionStatement
+         Source: "approvers[msg.sender]=true"
+        Assignment using operator =
+           Type: bool
+           Source: "approvers[msg.sender]=true"
+          IndexAccess
+             Type: bool
+             Source: "approvers[msg.sender]"
+            Identifier approvers
+               Type: mapping(address => bool)
+               Source: "approvers"
+            MemberAccess to member sender
+               Type: address payable
+               Source: "msg.sender"
+              Identifier msg
+                 Type: msg
+                 Source: "msg"
+          Literal, token: true value: true
+             Type: bool
+             Source: "true"
+      ExpressionStatement
+         Source: "approversCount++"
+        UnaryOperation (postfix) ++
+           Type: uint256
+           Source: "approversCount++"
+          Identifier approversCount
+             Type: uint256
+             Source: "approversCount"
+  FunctionDefinition "createRequest" - public
+     Source: "function createRequest(string memory description,\n                            uint value,\n                            address payable recipient) public restricted {\n        Request memory newRequest = Request({\n            description: description,\n            value: value,\n            recipient: recipient,\n            complete: false,\n            approvalCount: 0\n            });\n        requests.push(newRequest);\n    }"
+    ParameterList
+       Source: "(string memory description,\n                            uint value,\n                            address payable recipient)"
+      VariableDeclaration "description"
+         Type: string memory
+         Source: "string memory description"
+        ElementaryTypeName string
+           Source: "string"
+      VariableDeclaration "value"
+         Type: uint256
+         Source: "uint value"
+        ElementaryTypeName uint
+           Source: "uint"
+      VariableDeclaration "recipient"
+         Type: address payable
+         Source: "address payable recipient"
+        ElementaryTypeName address
+           Source: "address payable"
+    ParameterList
+       Source: ""
+    ModifierInvocation "restricted"
+       Source: "restricted"
+      Identifier restricted
+         Type: modifier ()
+         Source: "restricted"
+    Block
+       Source: "{\n        Request memory newRequest = Request({\n            description: description,\n            value: value,\n            recipient: recipient,\n            complete: false,\n            approvalCount: 0\n            });\n        requests.push(newRequest);\n    }"
+      VariableDeclarationStatement
+         Source: "Request memory newRequest = Request({\n            description: description,\n            value: value,\n            recipient: recipient,\n            complete: false,\n            approvalCount: 0\n            })"
+        VariableDeclaration "newRequest"
+           Type: struct Campaign.Request memory
+           Source: "Request memory newRequest"
+          UserDefinedTypeName "Request"
+             Source: "Request"
+        FunctionCall
+           Type: struct Campaign.Request memory
+           Source: "Request({\n            description: description,\n            value: value,\n            recipient: recipient,\n            complete: false,\n            approvalCount: 0\n            })"
+          Identifier Request
+             Type: type(struct Campaign.Request storage pointer)
+             Source: "Request"
+          Identifier description
+             Type: string memory
+             Source: "description"
+          Identifier value
+             Type: uint256
+             Source: "value"
+          Identifier recipient
+             Type: address payable
+             Source: "recipient"
+          Literal, token: false value: false
+             Type: bool
+             Source: "false"
+          Literal, token: [no token] value: 0
+             Type: int_const 0
+             Source: "0"
+      ExpressionStatement
+         Source: "requests.push(newRequest)"
+        FunctionCall
+           Type: uint256
+           Source: "requests.push(newRequest)"
+          MemberAccess to member push
+             Type: function (struct Campaign.Request storage ref) returns (uint256)
+             Source: "requests.push"
+            Identifier requests
+               Type: struct Campaign.Request storage ref[] storage ref
+               Source: "requests"
+          Identifier newRequest
+             Type: struct Campaign.Request memory
+             Source: "newRequest"
+  FunctionDefinition "approveRequest" - public
+     Source: "function approveRequest(uint index) public{\n        Request storage request = requests[index];\n\n        require(approvers[msg.sender]); // require that the sender is a contributor\n        require(!request.approvals[msg.sender]); // the approver cannot vote more than once\n\n        request.approvals[msg.sender]=true;\n        request.approvalCount++;\n    }"
+    ParameterList
+       Source: "(uint index)"
+      VariableDeclaration "index"
+         Type: uint256
+         Source: "uint index"
+        ElementaryTypeName uint
+           Source: "uint"
+    ParameterList
+       Source: ""
+    Block
+       Source: "{\n        Request storage request = requests[index];\n\n        require(approvers[msg.sender]); // require that the sender is a contributor\n        require(!request.approvals[msg.sender]); // the approver cannot vote more than once\n\n        request.approvals[msg.sender]=true;\n        request.approvalCount++;\n    }"
+      VariableDeclarationStatement
+         Source: "Request storage request = requests[index]"
+        VariableDeclaration "request"
+           Type: struct Campaign.Request storage pointer
+           Source: "Request storage request"
+          UserDefinedTypeName "Request"
+             Source: "Request"
+        IndexAccess
+           Type: struct Campaign.Request storage ref
+           Source: "requests[index]"
+          Identifier requests
+             Type: struct Campaign.Request storage ref[] storage ref
+             Source: "requests"
+          Identifier index
+             Type: uint256
+             Source: "index"
+      ExpressionStatement
+         Source: "require(approvers[msg.sender])"
+        FunctionCall
+           Type: tuple()
+           Source: "require(approvers[msg.sender])"
+          Identifier require
+             Type: function (bool) pure
+             Source: "require"
+          IndexAccess
+             Type: bool
+             Source: "approvers[msg.sender]"
+            Identifier approvers
+               Type: mapping(address => bool)
+               Source: "approvers"
+            MemberAccess to member sender
+               Type: address payable
+               Source: "msg.sender"
+              Identifier msg
+                 Type: msg
+                 Source: "msg"
+      ExpressionStatement
+         Source: "require(!request.approvals[msg.sender])"
+        FunctionCall
+           Type: tuple()
+           Source: "require(!request.approvals[msg.sender])"
+          Identifier require
+             Type: function (bool) pure
+             Source: "require"
+          UnaryOperation (prefix) !
+             Type: bool
+             Source: "!request.approvals[msg.sender]"
+            IndexAccess
+               Type: bool
+               Source: "request.approvals[msg.sender]"
+              MemberAccess to member approvals
+                 Type: mapping(address => bool)
+                 Source: "request.approvals"
+                Identifier request
+                   Type: struct Campaign.Request storage pointer
+                   Source: "request"
+              MemberAccess to member sender
+                 Type: address payable
+                 Source: "msg.sender"
+                Identifier msg
+                   Type: msg
+                   Source: "msg"
+      ExpressionStatement
+         Source: "request.approvals[msg.sender]=true"
+        Assignment using operator =
+           Type: bool
+           Source: "request.approvals[msg.sender]=true"
+          IndexAccess
+             Type: bool
+             Source: "request.approvals[msg.sender]"
+            MemberAccess to member approvals
+               Type: mapping(address => bool)
+               Source: "request.approvals"
+              Identifier request
+                 Type: struct Campaign.Request storage pointer
+                 Source: "request"
+            MemberAccess to member sender
+               Type: address payable
+               Source: "msg.sender"
+              Identifier msg
+                 Type: msg
+                 Source: "msg"
+          Literal, token: true value: true
+             Type: bool
+             Source: "true"
+      ExpressionStatement
+         Source: "request.approvalCount++"
+        UnaryOperation (postfix) ++
+           Type: uint256
+           Source: "request.approvalCount++"
+          MemberAccess to member approvalCount
+             Type: uint256
+             Source: "request.approvalCount"
+            Identifier request
+               Type: struct Campaign.Request storage pointer
+               Source: "request"
+  FunctionDefinition "finalizeRequest" - public
+     Source: "function finalizeRequest(uint index) public restricted {\n        Request storage request = requests[index];\n        require(!request.complete);\n        require(request.approvalCount > (approversCount/2));\n\n        //we transfer the money of the request to the intended recipient\n        // as recipient field is an address, it has a function transfer\n        request.recipient.transfer(request.value);\n        // the request is finished, we mark it as complete, so it cannot be finalized again\n        request.complete=true;\n    }"
+    ParameterList
+       Source: "(uint index)"
+      VariableDeclaration "index"
+         Type: uint256
+         Source: "uint index"
+        ElementaryTypeName uint
+           Source: "uint"
+    ParameterList
+       Source: ""
+    ModifierInvocation "restricted"
+       Source: "restricted"
+      Identifier restricted
+         Type: modifier ()
+         Source: "restricted"
+    Block
+       Source: "{\n        Request storage request = requests[index];\n        require(!request.complete);\n        require(request.approvalCount > (approversCount/2));\n\n        //we transfer the money of the request to the intended recipient\n        // as recipient field is an address, it has a function transfer\n        request.recipient.transfer(request.value);\n        // the request is finished, we mark it as complete, so it cannot be finalized again\n        request.complete=true;\n    }"
+      VariableDeclarationStatement
+         Source: "Request storage request = requests[index]"
+        VariableDeclaration "request"
+           Type: struct Campaign.Request storage pointer
+           Source: "Request storage request"
+          UserDefinedTypeName "Request"
+             Source: "Request"
+        IndexAccess
+           Type: struct Campaign.Request storage ref
+           Source: "requests[index]"
+          Identifier requests
+             Type: struct Campaign.Request storage ref[] storage ref
+             Source: "requests"
+          Identifier index
+             Type: uint256
+             Source: "index"
+      ExpressionStatement
+         Source: "require(!request.complete)"
+        FunctionCall
+           Type: tuple()
+           Source: "require(!request.complete)"
+          Identifier require
+             Type: function (bool) pure
+             Source: "require"
+          UnaryOperation (prefix) !
+             Type: bool
+             Source: "!request.complete"
+            MemberAccess to member complete
+               Type: bool
+               Source: "request.complete"
+              Identifier request
+                 Type: struct Campaign.Request storage pointer
+                 Source: "request"
+      ExpressionStatement
+         Source: "require(request.approvalCount > (approversCount/2))"
+        FunctionCall
+           Type: tuple()
+           Source: "require(request.approvalCount > (approversCount/2))"
+          Identifier require
+             Type: function (bool) pure
+             Source: "require"
+          BinaryOperation using operator >
+             Type: bool
+             Source: "request.approvalCount > (approversCount/2)"
+            MemberAccess to member approvalCount
+               Type: uint256
+               Source: "request.approvalCount"
+              Identifier request
+                 Type: struct Campaign.Request storage pointer
+                 Source: "request"
+            TupleExpression
+               Type: uint256
+               Source: "(approversCount/2)"
+              BinaryOperation using operator /
+                 Type: uint256
+                 Source: "approversCount/2"
+                Identifier approversCount
+                   Type: uint256
+                   Source: "approversCount"
+                Literal, token: [no token] value: 2
+                   Type: int_const 2
+                   Source: "2"
+      ExpressionStatement
+         Source: "request.recipient.transfer(request.value)"
+        FunctionCall
+           Type: tuple()
+           Source: "request.recipient.transfer(request.value)"
+          MemberAccess to member transfer
+             Type: function (uint256)
+             Source: "request.recipient.transfer"
+            MemberAccess to member recipient
+               Type: address payable
+               Source: "request.recipient"
+              Identifier request
+                 Type: struct Campaign.Request storage pointer
+                 Source: "request"
+          MemberAccess to member value
+             Type: uint256
+             Source: "request.value"
+            Identifier request
+               Type: struct Campaign.Request storage pointer
+               Source: "request"
+      ExpressionStatement
+         Source: "request.complete=true"
+        Assignment using operator =
+           Type: bool
+           Source: "request.complete=true"
+          MemberAccess to member complete
+             Type: bool
+             Source: "request.complete"
+            Identifier request
+               Type: struct Campaign.Request storage pointer
+               Source: "request"
+          Literal, token: true value: true
+             Type: bool
+             Source: "true"

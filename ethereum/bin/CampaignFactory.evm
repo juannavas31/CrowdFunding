@@ -1,0 +1,2662 @@
+    /* "./contracts/CrowdFunding.sol":33:534  contract CampaignFactory {... */
+  mstore(0x40, 0x80)
+  callvalue
+    /* "--CODEGEN--":8:17   */
+  dup1
+    /* "--CODEGEN--":5:7   */
+  iszero
+  tag_1
+  jumpi
+    /* "--CODEGEN--":30:31   */
+  0x00
+    /* "--CODEGEN--":27:28   */
+  dup1
+    /* "--CODEGEN--":20:32   */
+  revert
+    /* "--CODEGEN--":5:7   */
+tag_1:
+    /* "./contracts/CrowdFunding.sol":33:534  contract CampaignFactory {... */
+  pop
+  dataSize(sub_0)
+  dup1
+  dataOffset(sub_0)
+  0x00
+  codecopy
+  0x00
+  return
+stop
+
+sub_0: assembly {
+        /* "./contracts/CrowdFunding.sol":33:534  contract CampaignFactory {... */
+      mstore(0x40, 0x80)
+      callvalue
+        /* "--CODEGEN--":8:17   */
+      dup1
+        /* "--CODEGEN--":5:7   */
+      iszero
+      tag_1
+      jumpi
+        /* "--CODEGEN--":30:31   */
+      0x00
+        /* "--CODEGEN--":27:28   */
+      dup1
+        /* "--CODEGEN--":20:32   */
+      revert
+        /* "--CODEGEN--":5:7   */
+    tag_1:
+        /* "./contracts/CrowdFunding.sol":33:534  contract CampaignFactory {... */
+      pop
+      jumpi(tag_2, lt(calldatasize, 0x04))
+      calldataload(0x00)
+      0x0100000000000000000000000000000000000000000000000000000000
+      swap1
+      div
+      dup1
+      0x339d50a5
+      eq
+      tag_3
+      jumpi
+      dup1
+      0x4acb9d4f
+      eq
+      tag_4
+      jumpi
+      dup1
+      0xa3303a75
+      eq
+      tag_5
+      jumpi
+    tag_2:
+      0x00
+      dup1
+      revert
+        /* "./contracts/CrowdFunding.sol":64:98  address[] public deployedCampaigns */
+    tag_3:
+      tag_6
+      0x04
+      dup1
+      calldatasize
+      sub
+        /* "--CODEGEN--":13:15   */
+      0x20
+        /* "--CODEGEN--":8:11   */
+      dup2
+        /* "--CODEGEN--":5:16   */
+      lt
+        /* "--CODEGEN--":2:4   */
+      iszero
+      tag_7
+      jumpi
+        /* "--CODEGEN--":29:30   */
+      0x00
+        /* "--CODEGEN--":26:27   */
+      dup1
+        /* "--CODEGEN--":19:31   */
+      revert
+        /* "--CODEGEN--":2:4   */
+    tag_7:
+        /* "./contracts/CrowdFunding.sol":64:98  address[] public deployedCampaigns */
+      dup2
+      add
+      swap1
+      dup1
+      dup1
+      calldataload
+      swap1
+      0x20
+      add
+      swap1
+      swap3
+      swap2
+      swap1
+      pop
+      pop
+      pop
+      tag_8
+      jump	// in
+    tag_6:
+      mload(0x40)
+      dup1
+      dup3
+      0xffffffffffffffffffffffffffffffffffffffff
+      and
+      0xffffffffffffffffffffffffffffffffffffffff
+      and
+      dup2
+      mstore
+      0x20
+      add
+      swap2
+      pop
+      pop
+      mload(0x40)
+      dup1
+      swap2
+      sub
+      swap1
+      return
+        /* "./contracts/CrowdFunding.sol":421:532  function getDeployedCampaigns() public view returns(address[] memory) {... */
+    tag_4:
+      tag_9
+      tag_10
+      jump	// in
+    tag_9:
+      mload(0x40)
+      dup1
+      dup1
+      0x20
+      add
+      dup3
+      dup2
+      sub
+      dup3
+      mstore
+      dup4
+      dup2
+      dup2
+      mload
+      dup2
+      mstore
+      0x20
+      add
+      swap2
+      pop
+      dup1
+      mload
+      swap1
+      0x20
+      add
+      swap1
+      0x20
+      mul
+      dup1
+      dup4
+      dup4
+        /* "--CODEGEN--":23:24   */
+      0x00
+        /* "--CODEGEN--":8:108   */
+    tag_11:
+        /* "--CODEGEN--":33:36   */
+      dup4
+        /* "--CODEGEN--":30:31   */
+      dup2
+        /* "--CODEGEN--":27:37   */
+      lt
+        /* "--CODEGEN--":8:108   */
+      iszero
+      tag_12
+      jumpi
+        /* "--CODEGEN--":99:100   */
+      dup1
+        /* "--CODEGEN--":94:97   */
+      dup3
+        /* "--CODEGEN--":90:101   */
+      add
+        /* "--CODEGEN--":84:102   */
+      mload
+        /* "--CODEGEN--":80:81   */
+      dup2
+        /* "--CODEGEN--":75:78   */
+      dup5
+        /* "--CODEGEN--":71:82   */
+      add
+        /* "--CODEGEN--":64:103   */
+      mstore
+        /* "--CODEGEN--":52:54   */
+      0x20
+        /* "--CODEGEN--":49:50   */
+      dup2
+        /* "--CODEGEN--":45:55   */
+      add
+        /* "--CODEGEN--":40:55   */
+      swap1
+      pop
+        /* "--CODEGEN--":8:108   */
+      jump(tag_11)
+    tag_12:
+        /* "--CODEGEN--":12:26   */
+      pop
+        /* "./contracts/CrowdFunding.sol":421:532  function getDeployedCampaigns() public view returns(address[] memory) {... */
+      pop
+      pop
+      pop
+      swap1
+      pop
+      add
+      swap3
+      pop
+      pop
+      pop
+      mload(0x40)
+      dup1
+      swap2
+      sub
+      swap1
+      return
+        /* "./contracts/CrowdFunding.sol":105:415  function createCampaign(uint minimum) public {... */
+    tag_5:
+      tag_14
+      0x04
+      dup1
+      calldatasize
+      sub
+        /* "--CODEGEN--":13:15   */
+      0x20
+        /* "--CODEGEN--":8:11   */
+      dup2
+        /* "--CODEGEN--":5:16   */
+      lt
+        /* "--CODEGEN--":2:4   */
+      iszero
+      tag_15
+      jumpi
+        /* "--CODEGEN--":29:30   */
+      0x00
+        /* "--CODEGEN--":26:27   */
+      dup1
+        /* "--CODEGEN--":19:31   */
+      revert
+        /* "--CODEGEN--":2:4   */
+    tag_15:
+        /* "./contracts/CrowdFunding.sol":105:415  function createCampaign(uint minimum) public {... */
+      dup2
+      add
+      swap1
+      dup1
+      dup1
+      calldataload
+      swap1
+      0x20
+      add
+      swap1
+      swap3
+      swap2
+      swap1
+      pop
+      pop
+      pop
+      tag_16
+      jump	// in
+    tag_14:
+      stop
+        /* "./contracts/CrowdFunding.sol":64:98  address[] public deployedCampaigns */
+    tag_8:
+      0x00
+      dup2
+      dup2
+      sload
+      dup2
+      lt
+      iszero
+      iszero
+      tag_17
+      jumpi
+      invalid
+    tag_17:
+      swap1
+      0x00
+      mstore
+      keccak256(0x00, 0x20)
+      add
+      0x00
+      swap2
+      pop
+      sload
+      swap1
+      0x0100
+      exp
+      swap1
+      div
+      0xffffffffffffffffffffffffffffffffffffffff
+      and
+      dup2
+      jump	// out
+        /* "./contracts/CrowdFunding.sol":421:532  function getDeployedCampaigns() public view returns(address[] memory) {... */
+    tag_10:
+        /* "./contracts/CrowdFunding.sol":473:489  address[] memory */
+      0x60
+        /* "./contracts/CrowdFunding.sol":508:525  deployedCampaigns */
+      0x00
+        /* "./contracts/CrowdFunding.sol":501:525  return deployedCampaigns */
+      dup1
+      sload
+      dup1
+      0x20
+      mul
+      0x20
+      add
+      mload(0x40)
+      swap1
+      dup2
+      add
+      0x40
+      mstore
+      dup1
+      swap3
+      swap2
+      swap1
+      dup2
+      dup2
+      mstore
+      0x20
+      add
+      dup3
+      dup1
+      sload
+      dup1
+      iszero
+      tag_20
+      jumpi
+      0x20
+      mul
+      dup3
+      add
+      swap2
+      swap1
+      0x00
+      mstore
+      keccak256(0x00, 0x20)
+      swap1
+    tag_21:
+      dup2
+      0x00
+      swap1
+      sload
+      swap1
+      0x0100
+      exp
+      swap1
+      div
+      0xffffffffffffffffffffffffffffffffffffffff
+      and
+      0xffffffffffffffffffffffffffffffffffffffff
+      and
+      dup2
+      mstore
+      0x20
+      add
+      swap1
+      0x01
+      add
+      swap1
+      dup1
+      dup4
+      gt
+      tag_21
+      jumpi
+    tag_20:
+      pop
+      pop
+      pop
+      pop
+      pop
+      swap1
+      pop
+        /* "./contracts/CrowdFunding.sol":421:532  function getDeployedCampaigns() public view returns(address[] memory) {... */
+      swap1
+      jump	// out
+        /* "./contracts/CrowdFunding.sol":105:415  function createCampaign(uint minimum) public {... */
+    tag_16:
+        /* "./contracts/CrowdFunding.sol":241:261  Campaign newCampaign */
+      0x00
+        /* "./contracts/CrowdFunding.sol":277:284  minimum */
+      dup2
+        /* "./contracts/CrowdFunding.sol":286:296  msg.sender */
+      caller
+        /* "./contracts/CrowdFunding.sol":264:297  new Campaign(minimum, msg.sender) */
+      tag_23
+      tag_24
+      jump	// in
+    tag_23:
+      dup1
+      dup4
+      dup2
+      mstore
+      0x20
+      add
+      dup3
+      0xffffffffffffffffffffffffffffffffffffffff
+      and
+      0xffffffffffffffffffffffffffffffffffffffff
+      and
+      dup2
+      mstore
+      0x20
+      add
+      swap3
+      pop
+      pop
+      pop
+      mload(0x40)
+      dup1
+      swap2
+      sub
+      swap1
+      0x00
+      create
+      dup1
+      iszero
+        /* "--CODEGEN--":8:17   */
+      dup1
+        /* "--CODEGEN--":5:7   */
+      iszero
+      tag_25
+      jumpi
+        /* "--CODEGEN--":45:61   */
+      returndatasize
+        /* "--CODEGEN--":42:43   */
+      0x00
+        /* "--CODEGEN--":39:40   */
+      dup1
+        /* "--CODEGEN--":24:62   */
+      returndatacopy
+        /* "--CODEGEN--":77:93   */
+      returndatasize
+        /* "--CODEGEN--":74:75   */
+      0x00
+        /* "--CODEGEN--":67:94   */
+      revert
+        /* "--CODEGEN--":5:7   */
+    tag_25:
+        /* "./contracts/CrowdFunding.sol":264:297  new Campaign(minimum, msg.sender) */
+      pop
+        /* "./contracts/CrowdFunding.sol":241:297  Campaign newCampaign = new Campaign(minimum, msg.sender) */
+      swap1
+      pop
+        /* "./contracts/CrowdFunding.sol":307:333  address newCampaignAddress */
+      0x00
+        /* "./contracts/CrowdFunding.sol":344:355  newCampaign */
+      dup2
+        /* "./contracts/CrowdFunding.sol":307:356  address newCampaignAddress = address(newCampaign) */
+      swap1
+      pop
+        /* "./contracts/CrowdFunding.sol":366:383  deployedCampaigns */
+      0x00
+        /* "./contracts/CrowdFunding.sol":389:407  newCampaignAddress */
+      dup2
+        /* "./contracts/CrowdFunding.sol":366:408  deployedCampaigns.push(newCampaignAddress) */
+      swap1
+      dup1
+        /* "--CODEGEN--":39:40   */
+      0x01
+        /* "--CODEGEN--":33:36   */
+      dup2
+        /* "--CODEGEN--":27:37   */
+      sload
+        /* "--CODEGEN--":23:41   */
+      add
+        /* "--CODEGEN--":57:67   */
+      dup1
+        /* "--CODEGEN--":52:55   */
+      dup3
+        /* "--CODEGEN--":45:68   */
+      sstore
+        /* "--CODEGEN--":79:89   */
+      dup1
+        /* "--CODEGEN--":72:89   */
+      swap2
+      pop
+        /* "--CODEGEN--":0:93   */
+      pop
+        /* "./contracts/CrowdFunding.sol":366:408  deployedCampaigns.push(newCampaignAddress) */
+      swap1
+      0x01
+      dup3
+      sub
+      swap1
+      0x00
+      mstore
+      keccak256(0x00, 0x20)
+      add
+      0x00
+      swap1
+      swap2
+      swap3
+      swap1
+      swap2
+      swap1
+      swap2
+      0x0100
+      exp
+      dup2
+      sload
+      dup2
+      0xffffffffffffffffffffffffffffffffffffffff
+      mul
+      not
+      and
+      swap1
+      dup4
+      0xffffffffffffffffffffffffffffffffffffffff
+      and
+      mul
+      or
+      swap1
+      sstore
+      pop
+      pop
+        /* "./contracts/CrowdFunding.sol":105:415  function createCampaign(uint minimum) public {... */
+      pop
+      pop
+      pop
+      jump	// out
+        /* "./contracts/CrowdFunding.sol":33:534  contract CampaignFactory {... */
+    tag_24:
+      mload(0x40)
+      dataSize(sub_0)
+      dup1
+      dataOffset(sub_0)
+      dup4
+      codecopy
+      add
+      swap1
+      jump	// out
+    stop
+
+    sub_0: assembly {
+            /* "./contracts/CrowdFunding.sol":536:2641  contract Campaign{... */
+          mstore(0x40, 0x80)
+            /* "./contracts/CrowdFunding.sol":1025:1148  constructor(uint minimum, address creator) public {... */
+          callvalue
+            /* "--CODEGEN--":8:17   */
+          dup1
+            /* "--CODEGEN--":5:7   */
+          iszero
+          tag_1
+          jumpi
+            /* "--CODEGEN--":30:31   */
+          0x00
+            /* "--CODEGEN--":27:28   */
+          dup1
+            /* "--CODEGEN--":20:32   */
+          revert
+            /* "--CODEGEN--":5:7   */
+        tag_1:
+            /* "./contracts/CrowdFunding.sol":1025:1148  constructor(uint minimum, address creator) public {... */
+          pop
+          mload(0x40)
+          0x40
+          dup1
+          bytecodeSize
+          dup4
+          codecopy
+          dup2
+          add
+          dup1
+          0x40
+          mstore
+            /* "--CODEGEN--":13:15   */
+          0x40
+            /* "--CODEGEN--":8:11   */
+          dup2
+            /* "--CODEGEN--":5:16   */
+          lt
+            /* "--CODEGEN--":2:4   */
+          iszero
+          tag_2
+          jumpi
+            /* "--CODEGEN--":29:30   */
+          0x00
+            /* "--CODEGEN--":26:27   */
+          dup1
+            /* "--CODEGEN--":19:31   */
+          revert
+            /* "--CODEGEN--":2:4   */
+        tag_2:
+            /* "./contracts/CrowdFunding.sol":1025:1148  constructor(uint minimum, address creator) public {... */
+          dup2
+          add
+          swap1
+          dup1
+          dup1
+          mload
+          swap1
+          0x20
+          add
+          swap1
+          swap3
+          swap2
+          swap1
+          dup1
+          mload
+          swap1
+          0x20
+          add
+          swap1
+          swap3
+          swap2
+          swap1
+          pop
+          pop
+          pop
+            /* "./contracts/CrowdFunding.sol":1095:1102  creator */
+          dup1
+            /* "./contracts/CrowdFunding.sol":1085:1092  manager */
+          0x01
+          0x00
+            /* "./contracts/CrowdFunding.sol":1085:1102  manager = creator */
+          0x0100
+          exp
+          dup2
+          sload
+          dup2
+          0xffffffffffffffffffffffffffffffffffffffff
+          mul
+          not
+          and
+          swap1
+          dup4
+          0xffffffffffffffffffffffffffffffffffffffff
+          and
+          mul
+          or
+          swap1
+          sstore
+          pop
+            /* "./contracts/CrowdFunding.sol":1134:1141  minimum */
+          dup2
+            /* "./contracts/CrowdFunding.sol":1112:1131  minimumContribution */
+          0x02
+            /* "./contracts/CrowdFunding.sol":1112:1141  minimumContribution = minimum */
+          dup2
+          swap1
+          sstore
+          pop
+            /* "./contracts/CrowdFunding.sol":1025:1148  constructor(uint minimum, address creator) public {... */
+          pop
+          pop
+            /* "./contracts/CrowdFunding.sol":536:2641  contract Campaign{... */
+          dataSize(sub_0)
+          dup1
+          dataOffset(sub_0)
+          0x00
+          codecopy
+          0x00
+          return
+        stop
+
+        sub_0: assembly {
+                /* "./contracts/CrowdFunding.sol":536:2641  contract Campaign{... */
+              mstore(0x40, 0x80)
+              jumpi(tag_1, lt(calldatasize, 0x04))
+              calldataload(0x00)
+              0x0100000000000000000000000000000000000000000000000000000000
+              swap1
+              div
+              dup1
+              0x82fde093
+              gt
+              tag_11
+              jumpi
+              dup1
+              0x82fde093
+              eq
+              tag_6
+              jumpi
+              dup1
+              0x8a9cfd55
+              eq
+              tag_7
+              jumpi
+              dup1
+              0x937e09b1
+              eq
+              tag_8
+              jumpi
+              dup1
+              0xd7bb99ba
+              eq
+              tag_9
+              jumpi
+              dup1
+              0xd7d1bbdb
+              eq
+              tag_10
+              jumpi
+              jump(tag_1)
+            tag_11:
+              dup1
+              0x03441006
+              eq
+              tag_2
+              jumpi
+              dup1
+              0x0a144391
+              eq
+              tag_3
+              jumpi
+              dup1
+              0x481c6a75
+              eq
+              tag_4
+              jumpi
+              dup1
+              0x81d12c58
+              eq
+              tag_5
+              jumpi
+            tag_1:
+              0x00
+              dup1
+              revert
+                /* "./contracts/CrowdFunding.sol":2107:2637  function finalizeRequest(uint index) public restricted {... */
+            tag_2:
+              callvalue
+                /* "--CODEGEN--":8:17   */
+              dup1
+                /* "--CODEGEN--":5:7   */
+              iszero
+              tag_12
+              jumpi
+                /* "--CODEGEN--":30:31   */
+              0x00
+                /* "--CODEGEN--":27:28   */
+              dup1
+                /* "--CODEGEN--":20:32   */
+              revert
+                /* "--CODEGEN--":5:7   */
+            tag_12:
+                /* "./contracts/CrowdFunding.sol":2107:2637  function finalizeRequest(uint index) public restricted {... */
+              pop
+              tag_13
+              0x04
+              dup1
+              calldatasize
+              sub
+                /* "--CODEGEN--":13:15   */
+              0x20
+                /* "--CODEGEN--":8:11   */
+              dup2
+                /* "--CODEGEN--":5:16   */
+              lt
+                /* "--CODEGEN--":2:4   */
+              iszero
+              tag_14
+              jumpi
+                /* "--CODEGEN--":29:30   */
+              0x00
+                /* "--CODEGEN--":26:27   */
+              dup1
+                /* "--CODEGEN--":19:31   */
+              revert
+                /* "--CODEGEN--":2:4   */
+            tag_14:
+                /* "./contracts/CrowdFunding.sol":2107:2637  function finalizeRequest(uint index) public restricted {... */
+              dup2
+              add
+              swap1
+              dup1
+              dup1
+              calldataload
+              swap1
+              0x20
+              add
+              swap1
+              swap3
+              swap2
+              swap1
+              pop
+              pop
+              pop
+              tag_15
+              jump	// in
+            tag_13:
+              stop
+                /* "./contracts/CrowdFunding.sol":860:901  mapping(address => bool) public approvers */
+            tag_3:
+              callvalue
+                /* "--CODEGEN--":8:17   */
+              dup1
+                /* "--CODEGEN--":5:7   */
+              iszero
+              tag_16
+              jumpi
+                /* "--CODEGEN--":30:31   */
+              0x00
+                /* "--CODEGEN--":27:28   */
+              dup1
+                /* "--CODEGEN--":20:32   */
+              revert
+                /* "--CODEGEN--":5:7   */
+            tag_16:
+                /* "./contracts/CrowdFunding.sol":860:901  mapping(address => bool) public approvers */
+              pop
+              tag_17
+              0x04
+              dup1
+              calldatasize
+              sub
+                /* "--CODEGEN--":13:15   */
+              0x20
+                /* "--CODEGEN--":8:11   */
+              dup2
+                /* "--CODEGEN--":5:16   */
+              lt
+                /* "--CODEGEN--":2:4   */
+              iszero
+              tag_18
+              jumpi
+                /* "--CODEGEN--":29:30   */
+              0x00
+                /* "--CODEGEN--":26:27   */
+              dup1
+                /* "--CODEGEN--":19:31   */
+              revert
+                /* "--CODEGEN--":2:4   */
+            tag_18:
+                /* "./contracts/CrowdFunding.sol":860:901  mapping(address => bool) public approvers */
+              dup2
+              add
+              swap1
+              dup1
+              dup1
+              calldataload
+              0xffffffffffffffffffffffffffffffffffffffff
+              and
+              swap1
+              0x20
+              add
+              swap1
+              swap3
+              swap2
+              swap1
+              pop
+              pop
+              pop
+              tag_19
+              jump	// in
+            tag_17:
+              mload(0x40)
+              dup1
+              dup3
+              iszero
+              iszero
+              iszero
+              iszero
+              dup2
+              mstore
+              0x20
+              add
+              swap2
+              pop
+              pop
+              mload(0x40)
+              dup1
+              swap2
+              sub
+              swap1
+              return
+                /* "./contracts/CrowdFunding.sol":795:817  address public manager */
+            tag_4:
+              callvalue
+                /* "--CODEGEN--":8:17   */
+              dup1
+                /* "--CODEGEN--":5:7   */
+              iszero
+              tag_20
+              jumpi
+                /* "--CODEGEN--":30:31   */
+              0x00
+                /* "--CODEGEN--":27:28   */
+              dup1
+                /* "--CODEGEN--":20:32   */
+              revert
+                /* "--CODEGEN--":5:7   */
+            tag_20:
+                /* "./contracts/CrowdFunding.sol":795:817  address public manager */
+              pop
+              tag_21
+              tag_22
+              jump	// in
+            tag_21:
+              mload(0x40)
+              dup1
+              dup3
+              0xffffffffffffffffffffffffffffffffffffffff
+              and
+              0xffffffffffffffffffffffffffffffffffffffff
+              and
+              dup2
+              mstore
+              0x20
+              add
+              swap2
+              pop
+              pop
+              mload(0x40)
+              dup1
+              swap2
+              sub
+              swap1
+              return
+                /* "./contracts/CrowdFunding.sol":764:789  Request[] public requests */
+            tag_5:
+              callvalue
+                /* "--CODEGEN--":8:17   */
+              dup1
+                /* "--CODEGEN--":5:7   */
+              iszero
+              tag_23
+              jumpi
+                /* "--CODEGEN--":30:31   */
+              0x00
+                /* "--CODEGEN--":27:28   */
+              dup1
+                /* "--CODEGEN--":20:32   */
+              revert
+                /* "--CODEGEN--":5:7   */
+            tag_23:
+                /* "./contracts/CrowdFunding.sol":764:789  Request[] public requests */
+              pop
+              tag_24
+              0x04
+              dup1
+              calldatasize
+              sub
+                /* "--CODEGEN--":13:15   */
+              0x20
+                /* "--CODEGEN--":8:11   */
+              dup2
+                /* "--CODEGEN--":5:16   */
+              lt
+                /* "--CODEGEN--":2:4   */
+              iszero
+              tag_25
+              jumpi
+                /* "--CODEGEN--":29:30   */
+              0x00
+                /* "--CODEGEN--":26:27   */
+              dup1
+                /* "--CODEGEN--":19:31   */
+              revert
+                /* "--CODEGEN--":2:4   */
+            tag_25:
+                /* "./contracts/CrowdFunding.sol":764:789  Request[] public requests */
+              dup2
+              add
+              swap1
+              dup1
+              dup1
+              calldataload
+              swap1
+              0x20
+              add
+              swap1
+              swap3
+              swap2
+              swap1
+              pop
+              pop
+              pop
+              tag_26
+              jump	// in
+            tag_24:
+              mload(0x40)
+              dup1
+              dup1
+              0x20
+              add
+              dup7
+              dup2
+              mstore
+              0x20
+              add
+              dup6
+              0xffffffffffffffffffffffffffffffffffffffff
+              and
+              0xffffffffffffffffffffffffffffffffffffffff
+              and
+              dup2
+              mstore
+              0x20
+              add
+              dup5
+              iszero
+              iszero
+              iszero
+              iszero
+              dup2
+              mstore
+              0x20
+              add
+              dup4
+              dup2
+              mstore
+              0x20
+              add
+              dup3
+              dup2
+              sub
+              dup3
+              mstore
+              dup8
+              dup2
+              dup2
+              mload
+              dup2
+              mstore
+              0x20
+              add
+              swap2
+              pop
+              dup1
+              mload
+              swap1
+              0x20
+              add
+              swap1
+              dup1
+              dup4
+              dup4
+                /* "--CODEGEN--":23:24   */
+              0x00
+                /* "--CODEGEN--":8:108   */
+            tag_27:
+                /* "--CODEGEN--":33:36   */
+              dup4
+                /* "--CODEGEN--":30:31   */
+              dup2
+                /* "--CODEGEN--":27:37   */
+              lt
+                /* "--CODEGEN--":8:108   */
+              iszero
+              tag_28
+              jumpi
+                /* "--CODEGEN--":99:100   */
+              dup1
+                /* "--CODEGEN--":94:97   */
+              dup3
+                /* "--CODEGEN--":90:101   */
+              add
+                /* "--CODEGEN--":84:102   */
+              mload
+                /* "--CODEGEN--":80:81   */
+              dup2
+                /* "--CODEGEN--":75:78   */
+              dup5
+                /* "--CODEGEN--":71:82   */
+              add
+                /* "--CODEGEN--":64:103   */
+              mstore
+                /* "--CODEGEN--":52:54   */
+              0x20
+                /* "--CODEGEN--":49:50   */
+              dup2
+                /* "--CODEGEN--":45:55   */
+              add
+                /* "--CODEGEN--":40:55   */
+              swap1
+              pop
+                /* "--CODEGEN--":8:108   */
+              jump(tag_27)
+            tag_28:
+                /* "--CODEGEN--":12:26   */
+              pop
+                /* "./contracts/CrowdFunding.sol":764:789  Request[] public requests */
+              pop
+              pop
+              pop
+              swap1
+              pop
+              swap1
+              dup2
+              add
+              swap1
+              0x1f
+              and
+              dup1
+              iszero
+              tag_30
+              jumpi
+              dup1
+              dup3
+              sub
+              dup1
+              mload
+              0x01
+              dup4
+              0x20
+              sub
+              0x0100
+              exp
+              sub
+              not
+              and
+              dup2
+              mstore
+              0x20
+              add
+              swap2
+              pop
+            tag_30:
+              pop
+              swap7
+              pop
+              pop
+              pop
+              pop
+              pop
+              pop
+              pop
+              mload(0x40)
+              dup1
+              swap2
+              sub
+              swap1
+              return
+                /* "./contracts/CrowdFunding.sol":907:933  uint public approversCount */
+            tag_6:
+              callvalue
+                /* "--CODEGEN--":8:17   */
+              dup1
+                /* "--CODEGEN--":5:7   */
+              iszero
+              tag_31
+              jumpi
+                /* "--CODEGEN--":30:31   */
+              0x00
+                /* "--CODEGEN--":27:28   */
+              dup1
+                /* "--CODEGEN--":20:32   */
+              revert
+                /* "--CODEGEN--":5:7   */
+            tag_31:
+                /* "./contracts/CrowdFunding.sol":907:933  uint public approversCount */
+              pop
+              tag_32
+              tag_33
+              jump	// in
+            tag_32:
+              mload(0x40)
+              dup1
+              dup3
+              dup2
+              mstore
+              0x20
+              add
+              swap2
+              pop
+              pop
+              mload(0x40)
+              dup1
+              swap2
+              sub
+              swap1
+              return
+                /* "./contracts/CrowdFunding.sol":1317:1740  function createRequest(string memory description,... */
+            tag_7:
+              callvalue
+                /* "--CODEGEN--":8:17   */
+              dup1
+                /* "--CODEGEN--":5:7   */
+              iszero
+              tag_34
+              jumpi
+                /* "--CODEGEN--":30:31   */
+              0x00
+                /* "--CODEGEN--":27:28   */
+              dup1
+                /* "--CODEGEN--":20:32   */
+              revert
+                /* "--CODEGEN--":5:7   */
+            tag_34:
+                /* "./contracts/CrowdFunding.sol":1317:1740  function createRequest(string memory description,... */
+              pop
+              tag_35
+              0x04
+              dup1
+              calldatasize
+              sub
+                /* "--CODEGEN--":13:15   */
+              0x60
+                /* "--CODEGEN--":8:11   */
+              dup2
+                /* "--CODEGEN--":5:16   */
+              lt
+                /* "--CODEGEN--":2:4   */
+              iszero
+              tag_36
+              jumpi
+                /* "--CODEGEN--":29:30   */
+              0x00
+                /* "--CODEGEN--":26:27   */
+              dup1
+                /* "--CODEGEN--":19:31   */
+              revert
+                /* "--CODEGEN--":2:4   */
+            tag_36:
+                /* "./contracts/CrowdFunding.sol":1317:1740  function createRequest(string memory description,... */
+              dup2
+              add
+              swap1
+              dup1
+              dup1
+              calldataload
+              swap1
+              0x20
+              add
+              swap1
+                /* "--CODEGEN--":21:32   */
+              0x0100000000
+                /* "--CODEGEN--":8:19   */
+              dup2
+                /* "--CODEGEN--":5:33   */
+              gt
+                /* "--CODEGEN--":2:4   */
+              iszero
+              tag_37
+              jumpi
+                /* "--CODEGEN--":46:47   */
+              0x00
+                /* "--CODEGEN--":43:44   */
+              dup1
+                /* "--CODEGEN--":36:48   */
+              revert
+                /* "--CODEGEN--":2:4   */
+            tag_37:
+                /* "./contracts/CrowdFunding.sol":1317:1740  function createRequest(string memory description,... */
+              dup3
+              add
+                /* "--CODEGEN--":35:44   */
+              dup4
+                /* "--CODEGEN--":28:32   */
+              0x20
+                /* "--CODEGEN--":12:26   */
+              dup3
+                /* "--CODEGEN--":8:33   */
+              add
+                /* "--CODEGEN--":5:45   */
+              gt
+                /* "--CODEGEN--":2:4   */
+              iszero
+              tag_38
+              jumpi
+                /* "--CODEGEN--":58:59   */
+              0x00
+                /* "--CODEGEN--":55:56   */
+              dup1
+                /* "--CODEGEN--":48:60   */
+              revert
+                /* "--CODEGEN--":2:4   */
+            tag_38:
+                /* "./contracts/CrowdFunding.sol":1317:1740  function createRequest(string memory description,... */
+              dup1
+              calldataload
+              swap1
+              0x20
+              add
+              swap2
+                /* "--CODEGEN--":100:109   */
+              dup5
+                /* "--CODEGEN--":95:96   */
+              0x01
+                /* "--CODEGEN--":81:93   */
+              dup4
+                /* "--CODEGEN--":77:97   */
+              mul
+                /* "--CODEGEN--":67:75   */
+              dup5
+                /* "--CODEGEN--":63:98   */
+              add
+                /* "--CODEGEN--":60:110   */
+              gt
+                /* "--CODEGEN--":39:50   */
+              0x0100000000
+                /* "--CODEGEN--":25:37   */
+              dup4
+                /* "--CODEGEN--":22:51   */
+              gt
+                /* "--CODEGEN--":11:118   */
+              or
+                /* "--CODEGEN--":8:10   */
+              iszero
+              tag_39
+              jumpi
+                /* "--CODEGEN--":131:132   */
+              0x00
+                /* "--CODEGEN--":128:129   */
+              dup1
+                /* "--CODEGEN--":121:133   */
+              revert
+                /* "--CODEGEN--":8:10   */
+            tag_39:
+                /* "./contracts/CrowdFunding.sol":1317:1740  function createRequest(string memory description,... */
+              swap2
+              swap1
+              dup1
+              dup1
+              0x1f
+              add
+              0x20
+              dup1
+              swap2
+              div
+              mul
+              0x20
+              add
+              mload(0x40)
+              swap1
+              dup2
+              add
+              0x40
+              mstore
+              dup1
+              swap4
+              swap3
+              swap2
+              swap1
+              dup2
+              dup2
+              mstore
+              0x20
+              add
+              dup4
+              dup4
+                /* "--CODEGEN--":30:33   */
+              dup1
+                /* "--CODEGEN--":22:28   */
+              dup3
+                /* "--CODEGEN--":14:20   */
+              dup5
+                /* "--CODEGEN--":1:34   */
+              calldatacopy
+                /* "--CODEGEN--":99:100   */
+              0x00
+                /* "--CODEGEN--":93:96   */
+              dup2
+                /* "--CODEGEN--":85:91   */
+              dup5
+                /* "--CODEGEN--":81:97   */
+              add
+                /* "--CODEGEN--":74:101   */
+              mstore
+                /* "--CODEGEN--":137:141   */
+              0x1f
+                /* "--CODEGEN--":133:142   */
+              not
+                /* "--CODEGEN--":126:130   */
+              0x1f
+                /* "--CODEGEN--":121:124   */
+              dup3
+                /* "--CODEGEN--":117:131   */
+              add
+                /* "--CODEGEN--":113:143   */
+              and
+                /* "--CODEGEN--":106:143   */
+              swap1
+              pop
+                /* "--CODEGEN--":169:172   */
+              dup1
+                /* "--CODEGEN--":161:167   */
+              dup4
+                /* "--CODEGEN--":157:173   */
+              add
+                /* "--CODEGEN--":147:173   */
+              swap3
+              pop
+                /* "./contracts/CrowdFunding.sol":1317:1740  function createRequest(string memory description,... */
+              pop
+              pop
+              pop
+              pop
+              pop
+              pop
+              swap2
+              swap3
+              swap2
+              swap3
+              swap1
+              dup1
+              calldataload
+              swap1
+              0x20
+              add
+              swap1
+              swap3
+              swap2
+              swap1
+              dup1
+              calldataload
+              0xffffffffffffffffffffffffffffffffffffffff
+              and
+              swap1
+              0x20
+              add
+              swap1
+              swap3
+              swap2
+              swap1
+              pop
+              pop
+              pop
+              tag_40
+              jump	// in
+            tag_35:
+              stop
+                /* "./contracts/CrowdFunding.sol":823:854  uint public minimumContribution */
+            tag_8:
+              callvalue
+                /* "--CODEGEN--":8:17   */
+              dup1
+                /* "--CODEGEN--":5:7   */
+              iszero
+              tag_41
+              jumpi
+                /* "--CODEGEN--":30:31   */
+              0x00
+                /* "--CODEGEN--":27:28   */
+              dup1
+                /* "--CODEGEN--":20:32   */
+              revert
+                /* "--CODEGEN--":5:7   */
+            tag_41:
+                /* "./contracts/CrowdFunding.sol":823:854  uint public minimumContribution */
+              pop
+              tag_42
+              tag_43
+              jump	// in
+            tag_42:
+              mload(0x40)
+              dup1
+              dup3
+              dup2
+              mstore
+              0x20
+              add
+              swap2
+              pop
+              pop
+              mload(0x40)
+              dup1
+              swap2
+              sub
+              swap1
+              return
+                /* "./contracts/CrowdFunding.sol":1154:1311  function contribute() public payable {... */
+            tag_9:
+              tag_44
+              tag_45
+              jump	// in
+            tag_44:
+              stop
+                /* "./contracts/CrowdFunding.sol":1746:2101  function approveRequest(uint index) public{... */
+            tag_10:
+              callvalue
+                /* "--CODEGEN--":8:17   */
+              dup1
+                /* "--CODEGEN--":5:7   */
+              iszero
+              tag_46
+              jumpi
+                /* "--CODEGEN--":30:31   */
+              0x00
+                /* "--CODEGEN--":27:28   */
+              dup1
+                /* "--CODEGEN--":20:32   */
+              revert
+                /* "--CODEGEN--":5:7   */
+            tag_46:
+                /* "./contracts/CrowdFunding.sol":1746:2101  function approveRequest(uint index) public{... */
+              pop
+              tag_47
+              0x04
+              dup1
+              calldatasize
+              sub
+                /* "--CODEGEN--":13:15   */
+              0x20
+                /* "--CODEGEN--":8:11   */
+              dup2
+                /* "--CODEGEN--":5:16   */
+              lt
+                /* "--CODEGEN--":2:4   */
+              iszero
+              tag_48
+              jumpi
+                /* "--CODEGEN--":29:30   */
+              0x00
+                /* "--CODEGEN--":26:27   */
+              dup1
+                /* "--CODEGEN--":19:31   */
+              revert
+                /* "--CODEGEN--":2:4   */
+            tag_48:
+                /* "./contracts/CrowdFunding.sol":1746:2101  function approveRequest(uint index) public{... */
+              dup2
+              add
+              swap1
+              dup1
+              dup1
+              calldataload
+              swap1
+              0x20
+              add
+              swap1
+              swap3
+              swap2
+              swap1
+              pop
+              pop
+              pop
+              tag_49
+              jump	// in
+            tag_47:
+              stop
+                /* "./contracts/CrowdFunding.sol":2107:2637  function finalizeRequest(uint index) public restricted {... */
+            tag_15:
+                /* "./contracts/CrowdFunding.sol":993:1000  manager */
+              0x01
+              0x00
+              swap1
+              sload
+              swap1
+              0x0100
+              exp
+              swap1
+              div
+              0xffffffffffffffffffffffffffffffffffffffff
+              and
+                /* "./contracts/CrowdFunding.sol":979:1000  msg.sender == manager */
+              0xffffffffffffffffffffffffffffffffffffffff
+              and
+                /* "./contracts/CrowdFunding.sol":979:989  msg.sender */
+              caller
+                /* "./contracts/CrowdFunding.sol":979:1000  msg.sender == manager */
+              0xffffffffffffffffffffffffffffffffffffffff
+              and
+              eq
+                /* "./contracts/CrowdFunding.sol":971:1001  require(msg.sender == manager) */
+              iszero
+              iszero
+              tag_51
+              jumpi
+              0x00
+              dup1
+              revert
+            tag_51:
+                /* "./contracts/CrowdFunding.sol":2172:2195  Request storage request */
+              0x00
+                /* "./contracts/CrowdFunding.sol":2198:2206  requests */
+              dup1
+                /* "./contracts/CrowdFunding.sol":2207:2212  index */
+              dup3
+                /* "./contracts/CrowdFunding.sol":2198:2213  requests[index] */
+              dup2
+              sload
+              dup2
+              lt
+              iszero
+              iszero
+              tag_53
+              jumpi
+              invalid
+            tag_53:
+              swap1
+              0x00
+              mstore
+              keccak256(0x00, 0x20)
+              swap1
+              0x05
+              mul
+              add
+                /* "./contracts/CrowdFunding.sol":2172:2213  Request storage request = requests[index] */
+              swap1
+              pop
+                /* "./contracts/CrowdFunding.sol":2232:2239  request */
+              dup1
+                /* "./contracts/CrowdFunding.sol":2232:2248  request.complete */
+              0x02
+              add
+              0x14
+              swap1
+              sload
+              swap1
+              0x0100
+              exp
+              swap1
+              div
+              0xff
+              and
+                /* "./contracts/CrowdFunding.sol":2231:2248  !request.complete */
+              iszero
+                /* "./contracts/CrowdFunding.sol":2223:2249  require(!request.complete) */
+              iszero
+              iszero
+              tag_55
+              jumpi
+              0x00
+              dup1
+              revert
+            tag_55:
+                /* "./contracts/CrowdFunding.sol":2307:2308  2 */
+              0x02
+                /* "./contracts/CrowdFunding.sol":2292:2306  approversCount */
+              sload(0x04)
+                /* "./contracts/CrowdFunding.sol":2292:2308  approversCount/2 */
+              dup2
+              iszero
+              iszero
+              tag_56
+              jumpi
+              invalid
+            tag_56:
+              div
+                /* "./contracts/CrowdFunding.sol":2267:2274  request */
+              dup2
+                /* "./contracts/CrowdFunding.sol":2267:2288  request.approvalCount */
+              0x03
+              add
+              sload
+                /* "./contracts/CrowdFunding.sol":2267:2309  request.approvalCount > (approversCount/2) */
+              gt
+                /* "./contracts/CrowdFunding.sol":2259:2310  require(request.approvalCount > (approversCount/2)) */
+              iszero
+              iszero
+              tag_57
+              jumpi
+              0x00
+              dup1
+              revert
+            tag_57:
+                /* "./contracts/CrowdFunding.sol":2466:2473  request */
+              dup1
+                /* "./contracts/CrowdFunding.sol":2466:2483  request.recipient */
+              0x02
+              add
+              0x00
+              swap1
+              sload
+              swap1
+              0x0100
+              exp
+              swap1
+              div
+              0xffffffffffffffffffffffffffffffffffffffff
+              and
+                /* "./contracts/CrowdFunding.sol":2466:2492  request.recipient.transfer */
+              0xffffffffffffffffffffffffffffffffffffffff
+              and
+                /* "./contracts/CrowdFunding.sol":2466:2507  request.recipient.transfer(request.value) */
+              0x08fc
+                /* "./contracts/CrowdFunding.sol":2493:2500  request */
+              dup3
+                /* "./contracts/CrowdFunding.sol":2493:2506  request.value */
+              0x01
+              add
+              sload
+                /* "./contracts/CrowdFunding.sol":2466:2507  request.recipient.transfer(request.value) */
+              swap1
+              dup2
+              iszero
+              mul
+              swap1
+              mload(0x40)
+              0x00
+              mload(0x40)
+              dup1
+              dup4
+              sub
+              dup2
+              dup6
+              dup9
+              dup9
+              call
+              swap4
+              pop
+              pop
+              pop
+              pop
+              iszero
+                /* "--CODEGEN--":8:17   */
+              dup1
+                /* "--CODEGEN--":5:7   */
+              iszero
+              tag_58
+              jumpi
+                /* "--CODEGEN--":45:61   */
+              returndatasize
+                /* "--CODEGEN--":42:43   */
+              0x00
+                /* "--CODEGEN--":39:40   */
+              dup1
+                /* "--CODEGEN--":24:62   */
+              returndatacopy
+                /* "--CODEGEN--":77:93   */
+              returndatasize
+                /* "--CODEGEN--":74:75   */
+              0x00
+                /* "--CODEGEN--":67:94   */
+              revert
+                /* "--CODEGEN--":5:7   */
+            tag_58:
+                /* "./contracts/CrowdFunding.sol":2466:2507  request.recipient.transfer(request.value) */
+              pop
+                /* "./contracts/CrowdFunding.sol":2626:2630  true */
+              0x01
+                /* "./contracts/CrowdFunding.sol":2609:2616  request */
+              dup2
+                /* "./contracts/CrowdFunding.sol":2609:2625  request.complete */
+              0x02
+              add
+              0x14
+                /* "./contracts/CrowdFunding.sol":2609:2630  request.complete=true */
+              0x0100
+              exp
+              dup2
+              sload
+              dup2
+              0xff
+              mul
+              not
+              and
+              swap1
+              dup4
+              iszero
+              iszero
+              mul
+              or
+              swap1
+              sstore
+              pop
+                /* "./contracts/CrowdFunding.sol":1011:1012  _ */
+              pop
+                /* "./contracts/CrowdFunding.sol":2107:2637  function finalizeRequest(uint index) public restricted {... */
+              pop
+              jump	// out
+                /* "./contracts/CrowdFunding.sol":860:901  mapping(address => bool) public approvers */
+            tag_19:
+              mstore(0x20, 0x03)
+              dup1
+              0x00
+              mstore
+              keccak256(0x00, 0x40)
+              0x00
+              swap2
+              pop
+              sload
+              swap1
+              0x0100
+              exp
+              swap1
+              div
+              0xff
+              and
+              dup2
+              jump	// out
+                /* "./contracts/CrowdFunding.sol":795:817  address public manager */
+            tag_22:
+              0x01
+              0x00
+              swap1
+              sload
+              swap1
+              0x0100
+              exp
+              swap1
+              div
+              0xffffffffffffffffffffffffffffffffffffffff
+              and
+              dup2
+              jump	// out
+                /* "./contracts/CrowdFunding.sol":764:789  Request[] public requests */
+            tag_26:
+              0x00
+              dup2
+              dup2
+              sload
+              dup2
+              lt
+              iszero
+              iszero
+              tag_59
+              jumpi
+              invalid
+            tag_59:
+              swap1
+              0x00
+              mstore
+              keccak256(0x00, 0x20)
+              swap1
+              0x05
+              mul
+              add
+              0x00
+              swap2
+              pop
+              swap1
+              pop
+              dup1
+              0x00
+              add
+              dup1
+              sload
+              0x01
+              dup2
+              0x01
+              and
+              iszero
+              0x0100
+              mul
+              sub
+              and
+              0x02
+              swap1
+              div
+              dup1
+              0x1f
+              add
+              0x20
+              dup1
+              swap2
+              div
+              mul
+              0x20
+              add
+              mload(0x40)
+              swap1
+              dup2
+              add
+              0x40
+              mstore
+              dup1
+              swap3
+              swap2
+              swap1
+              dup2
+              dup2
+              mstore
+              0x20
+              add
+              dup3
+              dup1
+              sload
+              0x01
+              dup2
+              0x01
+              and
+              iszero
+              0x0100
+              mul
+              sub
+              and
+              0x02
+              swap1
+              div
+              dup1
+              iszero
+              tag_61
+              jumpi
+              dup1
+              0x1f
+              lt
+              tag_62
+              jumpi
+              0x0100
+              dup1
+              dup4
+              sload
+              div
+              mul
+              dup4
+              mstore
+              swap2
+              0x20
+              add
+              swap2
+              jump(tag_61)
+            tag_62:
+              dup3
+              add
+              swap2
+              swap1
+              0x00
+              mstore
+              keccak256(0x00, 0x20)
+              swap1
+            tag_63:
+              dup2
+              sload
+              dup2
+              mstore
+              swap1
+              0x01
+              add
+              swap1
+              0x20
+              add
+              dup1
+              dup4
+              gt
+              tag_63
+              jumpi
+              dup3
+              swap1
+              sub
+              0x1f
+              and
+              dup3
+              add
+              swap2
+            tag_61:
+              pop
+              pop
+              pop
+              pop
+              pop
+              swap1
+              dup1
+              0x01
+              add
+              sload
+              swap1
+              dup1
+              0x02
+              add
+              0x00
+              swap1
+              sload
+              swap1
+              0x0100
+              exp
+              swap1
+              div
+              0xffffffffffffffffffffffffffffffffffffffff
+              and
+              swap1
+              dup1
+              0x02
+              add
+              0x14
+              swap1
+              sload
+              swap1
+              0x0100
+              exp
+              swap1
+              div
+              0xff
+              and
+              swap1
+              dup1
+              0x03
+              add
+              sload
+              swap1
+              pop
+              dup6
+              jump	// out
+                /* "./contracts/CrowdFunding.sol":907:933  uint public approversCount */
+            tag_33:
+              sload(0x04)
+              dup2
+              jump	// out
+                /* "./contracts/CrowdFunding.sol":1317:1740  function createRequest(string memory description,... */
+            tag_40:
+                /* "./contracts/CrowdFunding.sol":993:1000  manager */
+              0x01
+              0x00
+              swap1
+              sload
+              swap1
+              0x0100
+              exp
+              swap1
+              div
+              0xffffffffffffffffffffffffffffffffffffffff
+              and
+                /* "./contracts/CrowdFunding.sol":979:1000  msg.sender == manager */
+              0xffffffffffffffffffffffffffffffffffffffff
+              and
+                /* "./contracts/CrowdFunding.sol":979:989  msg.sender */
+              caller
+                /* "./contracts/CrowdFunding.sol":979:1000  msg.sender == manager */
+              0xffffffffffffffffffffffffffffffffffffffff
+              and
+              eq
+                /* "./contracts/CrowdFunding.sol":971:1001  require(msg.sender == manager) */
+              iszero
+              iszero
+              tag_65
+              jumpi
+              0x00
+              dup1
+              revert
+            tag_65:
+                /* "./contracts/CrowdFunding.sol":1490:1515  Request memory newRequest */
+              tag_67
+              tag_68
+              jump	// in
+            tag_67:
+                /* "./contracts/CrowdFunding.sol":1518:1698  Request({... */
+              0xa0
+              mload(0x40)
+              swap1
+              dup2
+              add
+              0x40
+              mstore
+              dup1
+                /* "./contracts/CrowdFunding.sol":1553:1564  description */
+              dup6
+                /* "./contracts/CrowdFunding.sol":1518:1698  Request({... */
+              dup2
+              mstore
+              0x20
+              add
+                /* "./contracts/CrowdFunding.sol":1585:1590  value */
+              dup5
+                /* "./contracts/CrowdFunding.sol":1518:1698  Request({... */
+              dup2
+              mstore
+              0x20
+              add
+                /* "./contracts/CrowdFunding.sol":1615:1624  recipient */
+              dup4
+                /* "./contracts/CrowdFunding.sol":1518:1698  Request({... */
+              0xffffffffffffffffffffffffffffffffffffffff
+              and
+              dup2
+              mstore
+              0x20
+              add
+                /* "./contracts/CrowdFunding.sol":1648:1653  false */
+              0x00
+                /* "./contracts/CrowdFunding.sol":1518:1698  Request({... */
+              iszero
+              iszero
+              dup2
+              mstore
+              0x20
+              add
+                /* "./contracts/CrowdFunding.sol":1682:1683  0 */
+              0x00
+                /* "./contracts/CrowdFunding.sol":1518:1698  Request({... */
+              dup2
+              mstore
+              pop
+                /* "./contracts/CrowdFunding.sol":1490:1698  Request memory newRequest = Request({... */
+              swap1
+              pop
+                /* "./contracts/CrowdFunding.sol":1708:1716  requests */
+              0x00
+                /* "./contracts/CrowdFunding.sol":1722:1732  newRequest */
+              dup2
+                /* "./contracts/CrowdFunding.sol":1708:1733  requests.push(newRequest) */
+              swap1
+              dup1
+                /* "--CODEGEN--":39:40   */
+              0x01
+                /* "--CODEGEN--":33:36   */
+              dup2
+                /* "--CODEGEN--":27:37   */
+              sload
+                /* "--CODEGEN--":23:41   */
+              add
+                /* "--CODEGEN--":57:67   */
+              dup1
+                /* "--CODEGEN--":52:55   */
+              dup3
+                /* "--CODEGEN--":45:68   */
+              sstore
+                /* "--CODEGEN--":79:89   */
+              dup1
+                /* "--CODEGEN--":72:89   */
+              swap2
+              pop
+                /* "--CODEGEN--":0:93   */
+              pop
+                /* "./contracts/CrowdFunding.sol":1708:1733  requests.push(newRequest) */
+              swap1
+              0x01
+              dup3
+              sub
+              swap1
+              0x00
+              mstore
+              keccak256(0x00, 0x20)
+              swap1
+              0x05
+              mul
+              add
+              0x00
+              swap1
+              swap2
+              swap3
+              swap1
+              swap2
+              swap1
+              swap2
+              pop
+              0x00
+              dup3
+              add
+              mload
+              dup2
+              0x00
+              add
+              swap1
+              dup1
+              mload
+              swap1
+              0x20
+              add
+              swap1
+              tag_70
+              swap3
+              swap2
+              swap1
+              tag_71
+              jump	// in
+            tag_70:
+              pop
+              0x20
+              dup3
+              add
+              mload
+              dup2
+              0x01
+              add
+              sstore
+              0x40
+              dup3
+              add
+              mload
+              dup2
+              0x02
+              add
+              exp(0x0100, 0x00)
+              dup2
+              sload
+              dup2
+              0xffffffffffffffffffffffffffffffffffffffff
+              mul
+              not
+              and
+              swap1
+              dup4
+              0xffffffffffffffffffffffffffffffffffffffff
+              and
+              mul
+              or
+              swap1
+              sstore
+              pop
+              0x60
+              dup3
+              add
+              mload
+              dup2
+              0x02
+              add
+              exp(0x0100, 0x14)
+              dup2
+              sload
+              dup2
+              0xff
+              mul
+              not
+              and
+              swap1
+              dup4
+              iszero
+              iszero
+              mul
+              or
+              swap1
+              sstore
+              pop
+              0x80
+              dup3
+              add
+              mload
+              dup2
+              0x03
+              add
+              sstore
+              pop
+              pop
+              pop
+                /* "./contracts/CrowdFunding.sol":1011:1012  _ */
+              pop
+                /* "./contracts/CrowdFunding.sol":1317:1740  function createRequest(string memory description,... */
+              pop
+              pop
+              pop
+              jump	// out
+                /* "./contracts/CrowdFunding.sol":823:854  uint public minimumContribution */
+            tag_43:
+              sload(0x02)
+              dup2
+              jump	// out
+                /* "./contracts/CrowdFunding.sol":1154:1311  function contribute() public payable {... */
+            tag_45:
+                /* "./contracts/CrowdFunding.sol":1221:1240  minimumContribution */
+              sload(0x02)
+                /* "./contracts/CrowdFunding.sol":1209:1218  msg.value */
+              callvalue
+                /* "./contracts/CrowdFunding.sol":1209:1240  msg.value > minimumContribution */
+              gt
+                /* "./contracts/CrowdFunding.sol":1201:1241  require(msg.value > minimumContribution) */
+              iszero
+              iszero
+              tag_73
+              jumpi
+              0x00
+              dup1
+              revert
+            tag_73:
+                /* "./contracts/CrowdFunding.sol":1274:1278  true */
+              0x01
+                /* "./contracts/CrowdFunding.sol":1252:1261  approvers */
+              0x03
+                /* "./contracts/CrowdFunding.sol":1252:1273  approvers[msg.sender] */
+              0x00
+                /* "./contracts/CrowdFunding.sol":1262:1272  msg.sender */
+              caller
+                /* "./contracts/CrowdFunding.sol":1252:1273  approvers[msg.sender] */
+              0xffffffffffffffffffffffffffffffffffffffff
+              and
+              0xffffffffffffffffffffffffffffffffffffffff
+              and
+              dup2
+              mstore
+              0x20
+              add
+              swap1
+              dup2
+              mstore
+              0x20
+              add
+              0x00
+              keccak256
+              0x00
+                /* "./contracts/CrowdFunding.sol":1252:1278  approvers[msg.sender]=true */
+              0x0100
+              exp
+              dup2
+              sload
+              dup2
+              0xff
+              mul
+              not
+              and
+              swap1
+              dup4
+              iszero
+              iszero
+              mul
+              or
+              swap1
+              sstore
+              pop
+                /* "./contracts/CrowdFunding.sol":1288:1302  approversCount */
+              0x04
+              0x00
+                /* "./contracts/CrowdFunding.sol":1288:1304  approversCount++ */
+              dup2
+              sload
+              dup1
+              swap3
+              swap2
+              swap1
+              0x01
+              add
+              swap2
+              swap1
+              pop
+              sstore
+              pop
+                /* "./contracts/CrowdFunding.sol":1154:1311  function contribute() public payable {... */
+              jump	// out
+                /* "./contracts/CrowdFunding.sol":1746:2101  function approveRequest(uint index) public{... */
+            tag_49:
+                /* "./contracts/CrowdFunding.sol":1798:1821  Request storage request */
+              0x00
+                /* "./contracts/CrowdFunding.sol":1824:1832  requests */
+              dup1
+                /* "./contracts/CrowdFunding.sol":1833:1838  index */
+              dup3
+                /* "./contracts/CrowdFunding.sol":1824:1839  requests[index] */
+              dup2
+              sload
+              dup2
+              lt
+              iszero
+              iszero
+              tag_75
+              jumpi
+              invalid
+            tag_75:
+              swap1
+              0x00
+              mstore
+              keccak256(0x00, 0x20)
+              swap1
+              0x05
+              mul
+              add
+                /* "./contracts/CrowdFunding.sol":1798:1839  Request storage request = requests[index] */
+              swap1
+              pop
+                /* "./contracts/CrowdFunding.sol":1858:1867  approvers */
+              0x03
+                /* "./contracts/CrowdFunding.sol":1858:1879  approvers[msg.sender] */
+              0x00
+                /* "./contracts/CrowdFunding.sol":1868:1878  msg.sender */
+              caller
+                /* "./contracts/CrowdFunding.sol":1858:1879  approvers[msg.sender] */
+              0xffffffffffffffffffffffffffffffffffffffff
+              and
+              0xffffffffffffffffffffffffffffffffffffffff
+              and
+              dup2
+              mstore
+              0x20
+              add
+              swap1
+              dup2
+              mstore
+              0x20
+              add
+              0x00
+              keccak256
+              0x00
+              swap1
+              sload
+              swap1
+              0x0100
+              exp
+              swap1
+              div
+              0xff
+              and
+                /* "./contracts/CrowdFunding.sol":1850:1880  require(approvers[msg.sender]) */
+              iszero
+              iszero
+              tag_77
+              jumpi
+              0x00
+              dup1
+              revert
+            tag_77:
+                /* "./contracts/CrowdFunding.sol":1943:1950  request */
+              dup1
+                /* "./contracts/CrowdFunding.sol":1943:1960  request.approvals */
+              0x04
+              add
+                /* "./contracts/CrowdFunding.sol":1943:1972  request.approvals[msg.sender] */
+              0x00
+                /* "./contracts/CrowdFunding.sol":1961:1971  msg.sender */
+              caller
+                /* "./contracts/CrowdFunding.sol":1943:1972  request.approvals[msg.sender] */
+              0xffffffffffffffffffffffffffffffffffffffff
+              and
+              0xffffffffffffffffffffffffffffffffffffffff
+              and
+              dup2
+              mstore
+              0x20
+              add
+              swap1
+              dup2
+              mstore
+              0x20
+              add
+              0x00
+              keccak256
+              0x00
+              swap1
+              sload
+              swap1
+              0x0100
+              exp
+              swap1
+              div
+              0xff
+              and
+                /* "./contracts/CrowdFunding.sol":1942:1972  !request.approvals[msg.sender] */
+              iszero
+                /* "./contracts/CrowdFunding.sol":1934:1973  require(!request.approvals[msg.sender]) */
+              iszero
+              iszero
+              tag_78
+              jumpi
+              0x00
+              dup1
+              revert
+            tag_78:
+                /* "./contracts/CrowdFunding.sol":2057:2061  true */
+              0x01
+                /* "./contracts/CrowdFunding.sol":2027:2034  request */
+              dup2
+                /* "./contracts/CrowdFunding.sol":2027:2044  request.approvals */
+              0x04
+              add
+                /* "./contracts/CrowdFunding.sol":2027:2056  request.approvals[msg.sender] */
+              0x00
+                /* "./contracts/CrowdFunding.sol":2045:2055  msg.sender */
+              caller
+                /* "./contracts/CrowdFunding.sol":2027:2056  request.approvals[msg.sender] */
+              0xffffffffffffffffffffffffffffffffffffffff
+              and
+              0xffffffffffffffffffffffffffffffffffffffff
+              and
+              dup2
+              mstore
+              0x20
+              add
+              swap1
+              dup2
+              mstore
+              0x20
+              add
+              0x00
+              keccak256
+              0x00
+                /* "./contracts/CrowdFunding.sol":2027:2061  request.approvals[msg.sender]=true */
+              0x0100
+              exp
+              dup2
+              sload
+              dup2
+              0xff
+              mul
+              not
+              and
+              swap1
+              dup4
+              iszero
+              iszero
+              mul
+              or
+              swap1
+              sstore
+              pop
+                /* "./contracts/CrowdFunding.sol":2071:2078  request */
+              dup1
+                /* "./contracts/CrowdFunding.sol":2071:2092  request.approvalCount */
+              0x03
+              add
+              0x00
+                /* "./contracts/CrowdFunding.sol":2071:2094  request.approvalCount++ */
+              dup2
+              sload
+              dup1
+              swap3
+              swap2
+              swap1
+              0x01
+              add
+              swap2
+              swap1
+              pop
+              sstore
+              pop
+                /* "./contracts/CrowdFunding.sol":1746:2101  function approveRequest(uint index) public{... */
+              pop
+              pop
+              jump	// out
+                /* "./contracts/CrowdFunding.sol":536:2641  contract Campaign{... */
+            tag_68:
+              0xa0
+              mload(0x40)
+              swap1
+              dup2
+              add
+              0x40
+              mstore
+              dup1
+              0x60
+              dup2
+              mstore
+              0x20
+              add
+              0x00
+              dup2
+              mstore
+              0x20
+              add
+              and(0xffffffffffffffffffffffffffffffffffffffff, 0x00)
+              dup2
+              mstore
+              0x20
+              add
+              iszero(iszero(0x00))
+              dup2
+              mstore
+              0x20
+              add
+              0x00
+              dup2
+              mstore
+              pop
+              swap1
+              jump	// out
+            tag_71:
+              dup3
+              dup1
+              sload
+              0x01
+              dup2
+              0x01
+              and
+              iszero
+              0x0100
+              mul
+              sub
+              and
+              0x02
+              swap1
+              div
+              swap1
+              0x00
+              mstore
+              keccak256(0x00, 0x20)
+              swap1
+              0x1f
+              add
+              0x20
+              swap1
+              div
+              dup2
+              add
+              swap3
+              dup3
+              0x1f
+              lt
+              tag_80
+              jumpi
+              dup1
+              mload
+              not(0xff)
+              and
+              dup4
+              dup1
+              add
+              or
+              dup6
+              sstore
+              jump(tag_79)
+            tag_80:
+              dup3
+              dup1
+              add
+              0x01
+              add
+              dup6
+              sstore
+              dup3
+              iszero
+              tag_79
+              jumpi
+              swap2
+              dup3
+              add
+            tag_81:
+              dup3
+              dup2
+              gt
+              iszero
+              tag_82
+              jumpi
+              dup3
+              mload
+              dup3
+              sstore
+              swap2
+              0x20
+              add
+              swap2
+              swap1
+              0x01
+              add
+              swap1
+              jump(tag_81)
+            tag_82:
+            tag_79:
+              pop
+              swap1
+              pop
+              tag_83
+              swap2
+              swap1
+              tag_84
+              jump	// in
+            tag_83:
+              pop
+              swap1
+              jump	// out
+            tag_84:
+              tag_85
+              swap2
+              swap1
+            tag_86:
+              dup1
+              dup3
+              gt
+              iszero
+              tag_87
+              jumpi
+              0x00
+              dup2
+              0x00
+              swap1
+              sstore
+              pop
+              0x01
+              add
+              jump(tag_86)
+            tag_87:
+              pop
+              swap1
+              jump
+            tag_85:
+              swap1
+              jump	// out
+
+            auxdata: 0xa165627a7a723058201bcd1bce2d16a5fbcc16ec25758b02521dc7f1e6c8c546d1b7c51317f27b7a680029
+        }
+    }
+
+    auxdata: 0xa165627a7a7230582059511fc956d7d358b2b2c899e41fe042d5e6f784e87150b9d4b91cbd672c340d0029
+}

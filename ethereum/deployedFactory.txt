@@ -1,0 +1,2 @@
+Factory Contract deployed to: 0xB98427be2EF958B2bCF1a50443e3e02231C2B2F8
+Factory Contract deployed to: 0xfCB5640CAA552364C6046e91695C08716434b95f
